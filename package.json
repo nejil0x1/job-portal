@@ -1,0 +1,11 @@
+{
+	"name": "joblabs",
+	"version": "1.0.0",
+	"description": "A Job protal app made with MERN stack",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Umang Utkarsh",
+	"license": "ISC"
+}
