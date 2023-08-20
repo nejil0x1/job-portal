@@ -4,10 +4,6 @@ import express from 'express';
 const app = express();
 import morgan from 'morgan';
 
-fetch('https://www.course-api.com/react-useReducer-cart-project')
-	.then(res => res.json())
-	.then(data => console.log(data));
-
 if (process.env.NODE_ENV === 'development') {
 	app.use(morgan('dev'));
 }
