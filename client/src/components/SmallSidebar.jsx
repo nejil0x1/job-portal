@@ -19,7 +19,7 @@ const SmallSidebar = () => {
 					<header>
 						<Logo />
 					</header>
-					<NavLinks />
+					<NavLinks isBigSidebar={false} />
 				</div>
 			</div>
 		</Wrapper>
