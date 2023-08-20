@@ -5,7 +5,8 @@
 	"main": "server.js",
 	"type": "module",
 	"scripts": {
-		"setup-project": "npm i && cd client && npm i"
+		"setup-project": "npm i && cd client && npm i",
+		"dev": "nodemon server.js"
 	},
 	"author": "Umang Utkarsh",
 	"license": "ISC",
