@@ -10,7 +10,7 @@ const Navbar = () => {
 		<Wrapper>
 			<div className='nav-center'>
 				<button className='toggle-btn' onClick={toggleSidebar}>
-					<FaAlignLeft />
+					<FaAlignLeft className='sidebar-btn' />
 				</button>
 				<div>
 					<Logo />

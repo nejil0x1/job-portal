@@ -34,6 +34,9 @@ const Wrapper = styled.nav`
 		display: flex;
 		align-items: center;
 	}
+	.sidebar-btn:hover {
+		color: var(--primary-600);
+	}
 	@media (min-width: 992px) {
 		position: sticky;
 		top: 0;
