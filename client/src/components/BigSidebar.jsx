@@ -10,7 +10,7 @@ const BigSidebar = () => {
 	return (
 		<Wrapper>
 			<div className={`sidebar-container ${!showSidebar && `show-sidebar`}`}>
-				<div className='container'>
+				<div className='content'>
 					<header>
 						<Logo />
 					</header>
