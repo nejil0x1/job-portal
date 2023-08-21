@@ -50,6 +50,7 @@ app.post('/api/v1/jobs', (req, res) => {
 app.get('/api/v1/jobs/:id', (req, res) => {
 	const job = jobs.find(job => job.id === req.params.id);
 	if (!job) {
+		throw new Error('Job not found');
 		return res
 			.status(404)
 			.json({ msg: `Job not found with id: ${req.params.id}` });
@@ -92,6 +93,15 @@ app.delete('/api/v1/jobs/:id', (req, res) => {
 	jobs = updatedJobs;
 
 	res.status(200).json({ msg: 'Job deleted', jobs });
+});
+
+app.use('*', (req, res) => {
+	res.status(404).json({ msg: 'Page not found' });
+});
+
+app.use((err, req, res, next) => {
+	console.log(err);
+	res.status(500).json({ msg: 'Something went wrong' });
 });
 
 const PORT = process.env.PORT || 5100;
