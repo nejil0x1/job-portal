@@ -1,4 +1,4 @@
-import { body, validationResult } from 'express-validator';
+import { body, check, validationResult } from 'express-validator';
 import { BadRequestError } from '../errors/customErrors.js';
 
 const withValidationErrors = validateValues => {
@@ -16,5 +16,5 @@ const withValidationErrors = validateValues => {
 };
 
 export const validateTest = withValidationErrors([
-	[body('name').not().isEmpty().withMessage('Name is required').trim()],
+	[check('name').not().isEmpty().withMessage('Name is required').trim()],
 ]);
