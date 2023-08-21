@@ -8,7 +8,7 @@ const withValidationErrors = validateValues => {
 			const errors = validationResult(req);
 			if (!errors.isEmpty()) {
 				const errorMessage = errors.array().map(error => error.msg);
-				return res.status(400).json({ errors: errorMessage });
+				throw new BadRequestError(errorMessage);
 			}
 			next();
 		},
