@@ -3,6 +3,11 @@ import { BadRequestError, NotFoundError } from '../errors/customErrors.js';
 import { JOB_STATUS, JOB_TYPE } from '../utils/constants.js';
 import mongoose from 'mongoose';
 import Job from '../models/JobModel.js';
+import User from '../models/UserModel.js';
+
+// import EventEmitter from 'events';
+// const emitter = new EventEmitter();
+// emitter.setMaxListeners(20);
 
 const withValidationErrors = validateValues => {
 	return [
@@ -45,4 +50,28 @@ export const validateIdParam = withValidationErrors([
 			throw new NotFoundError(`Job not found with id: ${value}`);
 		}
 	}),
+]);
+
+export const validateRegisterInput = withValidationErrors([
+	check('name').not().isEmpty().withMessage('Name is required'),
+	check('email')
+		.not()
+		.isEmpty()
+		.withMessage('Email is required')
+		.isEmail()
+		.withMessage('Invalid email format')
+		.custom(async email => {
+			const user = await User.findOne({ email });
+			if (user) {
+				throw new BadRequestError('Email already exists');
+			}
+		}),
+	check('password')
+		.not()
+		.isEmpty()
+		.withMessage('Password is required')
+		.isLength({ min: 6 })
+		.withMessage('Password must be at-least 6 characters long'),
+	check('location').not().isEmpty().withMessage('Location is required'),
+	check('lastName').notEmpty().withMessage('last name is required'),
 ]);
