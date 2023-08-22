@@ -20,10 +20,6 @@ app.use(express.json());
 
 app.get('/', (req, res) => res.send('hi there'));
 
-app.post('/', (req, res) => {
-	res.json({ msg: `data received` });
-});
-
 app.use('/api/v1/jobs', jobRouter);
 
 app.use('*', (req, res) => {

@@ -29,18 +29,24 @@ export const getJob = async (req, res) => {
 };
 
 export const updateJob = async (req, res) => {
-	const { company, position } = req.body;
+	// const { company, position, jobStatus, jobType, jobLocation } = req.body;
 
-	const job = await Job.findById({ _id: req.params.id });
-	if (!job) {
-		return res
-			.status(404)
-			.json({ msg: `Job not found with id: ${req.params.id}` });
-	}
+	// const job = await Job.findById({ _id: req.params.id });
+	// if (!job) {
+	// 	return res
+	// 		.status(404)
+	// 		.json({ msg: `Job not found with id: ${req.params.id}` });
+	// }
 
-	job.company = company;
-	job.position = position;
-	const updatedJob = await job.save();
+	// job.company = company;
+	// job.position = position;
+	// job.jobStatus = jobStatus;
+	// job.jobType = job.jobType;
+	// job.jobLocation = job.jobLocation;
+	// const updatedJob = await job.save();
+	const updatedJob = await Job.findByIdAndUpdate(req.params.id, req.body, {
+		new: true,
+	});
 	res.status(StatusCodes.OK).json({ msg: 'Job updated', job: updatedJob });
 };
 
