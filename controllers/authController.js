@@ -1,11 +1,14 @@
 import { StatusCodes } from 'http-status-codes';
 import User from '../models/UserModel.js';
+import { hashPassword } from '../utils/passwordUtils.js';
 
 export const registerUser = async (req, res) => {
-	const { name, email, password, lastName, location } = req.body;
+	let { name, email, password, lastName, location, role } = req.body;
 
 	const isFirstUser = (await User.countDocuments()) === 0;
-	req.body.role = isFirstUser ? 'admin' : 'user';
+	role = isFirstUser ? 'admin' : 'user';
+
+	password = await hashPassword(password);
 
 	const newUser = await User.create({
 		name,
@@ -13,10 +16,10 @@ export const registerUser = async (req, res) => {
 		password,
 		lastName,
 		location,
-		role: req.body.role,
+		role,
 	});
 
-	res.status(StatusCodes.CREATED).json({ newUser });
+	res.status(StatusCodes.CREATED).json({ msg: 'User created', newUser });
 };
 
 export const loginUser = async (req, res) => {
