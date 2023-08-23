@@ -1,5 +1,5 @@
-import { StatusCodes } from 'http-status-codes';
 import User from '../models/UserModel.js';
+import { StatusCodes } from 'http-status-codes';
 import { comparePassword, hashPassword } from '../utils/passwordUtils.js';
 import { UnauthenticatedError } from '../errors/customErrors.js';
 import { createJWT } from '../utils/tokenUtils.js';
@@ -34,5 +34,12 @@ export const loginUser = async (req, res) => {
 	}
 
 	const token = createJWT({ userId: user._id, role: user.role });
-	res.status(200).json({ token });
+
+	const oneDay = 1000 * 60 * 60 * 24;
+	res.cookie('token', token, {
+		httpOnly: true,
+		expires: new Date(Date.now() + oneDay),
+		secure: process.env.NODE_ENV === 'production',
+	});
+	res.status(StatusCodes.OK).json({ msg: 'User logged in' });
 };
