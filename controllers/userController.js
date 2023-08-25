@@ -19,5 +19,5 @@ export const updateUser = async (req, res) => {
 	delete obj.password;
 	console.log(obj);
 	let updatedUser = await User.findByIdAndUpdate(req.user.userId, obj);
-	res.status(StatusCodes.OK).json({ msg: 'User updated' });
+	res.status(StatusCodes.OK).json({ msg: 'User updated', user: updatedUser });
 };
