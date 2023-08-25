@@ -1,11 +1,28 @@
-import { Link } from 'react-router-dom';
+import { Form, redirect, useNavigation, Link } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/RegisterAndLoginPage';
 import { FormRow, Logo } from '../components';
+import customFetch from '../utils/customFetch';
+export const action = async ({ request }) => {
+	const formData = await request.formData();
+	const data = Object.fromEntries(formData);
+
+	try {
+		await customFetch.post('/auth/register', data);
+		return redirect('/login');
+	} catch (error) {
+		console.log(error);
+		return error;
+	}
+};
 
 const Register = () => {
+	const navigation = useNavigation();
+	console.log(navigation);
+	const isSubmitting = navigation.state === 'submitting';
+
 	return (
 		<Wrapper>
-			<form className='form'>
+			<Form method='post' className='form'>
 				<Logo />
 				<h4>Register</h4>
 				<FormRow type='text' name='name' labelText='name' defaultValue='anon' />
@@ -34,14 +51,16 @@ const Register = () => {
 					defaultValue='password123'
 				/>
 				{/* @toDo - add a confirmPassword component */}
-				<button className='btn btn-block'>submit</button>
+				<button type='submit' className='btn btn-block' disabled={isSubmitting}>
+					{isSubmitting ? 'Submitting...' : 'Submit'}
+				</button>
 				<p>
 					Already a member?
 					<Link to='/login' className='member-btn'>
 						Login
 					</Link>
 				</p>
-			</form>
+			</Form>
 		</Wrapper>
 	);
 };
