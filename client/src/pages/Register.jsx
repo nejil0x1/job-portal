@@ -21,7 +21,7 @@ export const action = async ({ request }) => {
 const Register = () => {
 	const navigation = useNavigation();
 	console.log(navigation);
-	const isSubmitting = navigation.state === 'submitting';
+	const isSubmitting = navigation.state === 'Submitting';
 
 	return (
 		<Wrapper>
@@ -55,7 +55,7 @@ const Register = () => {
 				/>
 				{/* @toDo - add a confirmPassword component */}
 				<button type='submit' className='btn btn-block' disabled={isSubmitting}>
-					{isSubmitting ? 'Submitting...' : 'Submit'}
+					{isSubmitting ? 'Submitting' : 'Submit'}
 				</button>
 				<p>
 					Already a member?
