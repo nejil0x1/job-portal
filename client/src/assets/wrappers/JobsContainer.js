@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.section`
 	margin-top: 4rem;
-	h2 {
+	.h2 {
 		text-transform: none;
 	}
 	& > h5 {
