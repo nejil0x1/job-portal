@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigation } from 'react-router-dom';
 
 const SubmitBtn = ({ formBtn }) => {
-	const navigation = useNavigate();
+	const navigation = useNavigation();
 	const isSubmitting = navigation.state === 'submitting';
 
 	return (
