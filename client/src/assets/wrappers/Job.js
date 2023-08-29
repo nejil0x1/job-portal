@@ -27,7 +27,7 @@ const Wrapper = styled.article`
 		margin-right: 2rem;
 	}
 	.info {
-		h2 {
+		h5 {
 			margin-bottom: 0.5rem;
 		}
 		p {

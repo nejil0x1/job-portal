@@ -1,5 +1,7 @@
 import Job from '../models/JobModel.js';
 import { StatusCodes } from 'http-status-codes';
+import mongoose from 'mongoose';
+import day from 'dayjs';
 
 export const getAllJobs = async (req, res) => {
 	// console.log(req.user);
@@ -51,4 +53,38 @@ export const deleteJob = async (req, res) => {
 
 	await Job.deleteOne({ _id: deletedJob._id });
 	res.status(StatusCodes.OK).json({ msg: 'Job deleted', job: deletedJob });
+};
+
+export const showStats = async (req, res) => {
+	let stats = await Job.aggregate([
+		{ $match: { createdBy: new mongoose.Types.ObjectId(req.user.userId) } },
+		{ $group: { _id: '$jobStatus', count: { $sum: 1 } } },
+	]);
+	stats = stats.reduce((acc, curr) => {
+		const { _id: title, count } = curr;
+		acc[title] = count;
+		return acc;
+	}, {});
+	console.log(stats);
+
+	const defaultStats = {
+		pending: stats.pending || 0,
+		interview: stats.interview || 0,
+		declined: stats.declined || 0,
+	};
+	let monthlyApplications = [
+		{
+			date: 'May 23',
+			count: 12,
+		},
+		{
+			date: 'Jun 23',
+			count: 9,
+		},
+		{
+			date: 'Jul 23',
+			count: 3,
+		},
+	];
+	res.status(StatusCodes.OK).json({ defaultStats, monthlyApplications });
 };
