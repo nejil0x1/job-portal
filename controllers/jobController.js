@@ -118,7 +118,7 @@ export const showStats = async (req, res) => {
 	// 	},
 	// 	{
 	// 		date: 'Jul 23',
-	// 		count: 3,
+	// 		count: 32,
 	// 	},
 	// ];
 	res.status(StatusCodes.OK).json({ defaultStats, monthlyApplications });
