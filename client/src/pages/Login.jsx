@@ -15,7 +15,7 @@ export const action = async ({ request }) => {
 	const data = Object.fromEntries(formData);
 
 	const errors = { msg: '' };
-	if (data.password.length < 6) {
+	if (data.password.length < 3) {
 		errors.msg = 'Password too short';
 		return errors;
 	}
