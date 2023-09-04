@@ -6,7 +6,7 @@ import day from 'dayjs';
 export const getAllJobs = async (req, res) => {
 	// console.log(req.query.search);
 
-	const { search, jobStatus, jobType } = req.query;
+	const { search, jobStatus, jobType, sort } = req.query;
 
 	const queryObject = {
 		createdBy: req.user.userId,
@@ -27,7 +27,16 @@ export const getAllJobs = async (req, res) => {
 		queryObject.jobType = jobType;
 	}
 
-	const allJobs = await Job.find(queryObject);
+	const sortOptions = {
+		newest: '-createdAt',
+		oldest: 'createdAt',
+		'a-z': 'position',
+		'z-a': '-position',
+	};
+
+	const sortType = sortOptions[sort] || sortOptions.newest;
+
+	const allJobs = await Job.find(queryObject).sort(sortType);
 	console.log(req.query);
 	res.status(StatusCodes.OK).json({ allJobs });
 };
