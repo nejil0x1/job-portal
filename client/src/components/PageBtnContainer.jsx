@@ -7,9 +7,38 @@ const PageBtnContainer = () => {
 	const {
 		data: { numPages, currentPage },
 	} = useAllJobsContext();
-	console.log(numPages, currentPage);
 
-	return <div>PageBtnContainer</div>;
+	const pages = Array.from({ length: numPages }, (_, index) => {
+		return index + 1;
+	});
+	console.log(pages);
+
+	return (
+		<Wrapper>
+			<button className='btn prev-btn'>
+				<HiChevronDoubleLeft />
+				prev
+			</button>
+			<div className='btn-container'>
+				{pages.map(pageNumber => {
+					return (
+						<button
+							className={`btn page-btn ${
+								pageNumber === currentPage && `active`
+							}`}
+							key={pageNumber}
+						>
+							{pageNumber}
+						</button>
+					);
+				})}
+			</div>
+			<button className='btn next-btn'>
+				next
+				<HiChevronDoubleRight />
+			</button>
+		</Wrapper>
+	);
 };
 
 export default PageBtnContainer;
