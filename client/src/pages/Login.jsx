@@ -39,7 +39,7 @@ const Login = () => {
 	const loginDemoUser = async () => {
 		const userData = {
 			email: 'test@test.com',
-			password: 'secret123',
+			password: 'password123',
 		};
 		try {
 			await customFetch.post('/auth/login', userData);
@@ -70,7 +70,7 @@ const Login = () => {
 					defaultValue='password123'
 				/>
 				<SubmitBtn />
-				<button type='submit' className='btn btn-block' onClick={loginDemoUser}>
+				<button type='button' className='btn btn-block' onClick={loginDemoUser}>
 					explore the app
 				</button>
 				<p>

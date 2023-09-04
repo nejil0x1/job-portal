@@ -30,16 +30,7 @@ const StatsContainer = ({ defaultStats }) => {
 	return (
 		<Wrapper>
 			{stats.map(stat => {
-				return (
-					<StatItem
-						key={stat.title}
-						title={stat.title}
-						count={stat.count}
-						icon={stat.icon}
-						color={stat.color}
-						bgColor={stat.bgColor}
-					/>
-				);
+				return <StatItem key={stat.title} {...stat} />;
 			})}
 		</Wrapper>
 	);

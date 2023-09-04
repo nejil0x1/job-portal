@@ -8,7 +8,7 @@ import {
 	Tooltip,
 } from 'recharts';
 
-const BarChartComponent = () => {
+const BarChartComponent = ({ data }) => {
 	return (
 		<ResponsiveContainer width='100%' height={300}>
 			<BarChart data={data} margin={{ top: 50 }}>

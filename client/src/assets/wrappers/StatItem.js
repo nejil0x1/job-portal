@@ -11,7 +11,7 @@ const Wrapper = styled.article`
 		justify-content: space-between;
 	}
 	.count {
-		display: flex;
+		display: block;
 		font-weight: 700;
 		font-size: 50px;
 		color: ${props => props.color};

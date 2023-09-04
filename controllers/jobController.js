@@ -61,6 +61,7 @@ export const showStats = async (req, res) => {
 		{ $group: { _id: '$jobStatus', count: { $sum: 1 } } },
 	]);
 	// console.log(stats);
+
 	stats = stats.reduce((acc, curr) => {
 		const { _id: title, count } = curr;
 		acc[title] = count;
@@ -107,19 +108,5 @@ export const showStats = async (req, res) => {
 		})
 		.reverse();
 
-	// let monthlyApplications = [
-	// 	{
-	// 		date: 'May 23',
-	// 		count: 12,
-	// 	},
-	// 	{
-	// 		date: 'Jun 23',
-	// 		count: 9,
-	// 	},
-	// 	{
-	// 		date: 'Jul 23',
-	// 		count: 32,
-	// 	},
-	// ];
 	res.status(StatusCodes.OK).json({ defaultStats, monthlyApplications });
 };

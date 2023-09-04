@@ -44,8 +44,13 @@ const Profile = () => {
 						/>
 					</div>
 					<FormRow type='text' name='name' defaultValue={name} />
-					<FormRow type='text' name='lastName' defaultValue={lastName} />
-					<FormRow type='text' name='email' defaultValue={email} />
+					<FormRow
+						type='text'
+						name='lastName'
+						labelText='Last Name'
+						defaultValue={lastName}
+					/>
+					<FormRow type='email' name='email' defaultValue={email} />
 					<FormRow type='text' name='location' defaultValue={location} />
 					<SubmitBtn formBtn />
 				</div>

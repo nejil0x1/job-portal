@@ -12,7 +12,7 @@ try {
 	// const user = await User.findOne({ email: 'test@test.com' });
 	const user = await User.findOne({ email: 'anonguy@email.com' });
 	const tempJobs = JSON.parse(
-		await readFile(new URL('./utils/mockData.json', import.meta.url))
+		await readFile(new URL('./utils/mock_data.json', import.meta.url))
 	);
 	const jobs = tempJobs.map(job => {
 		return { ...job, createdBy: user._id };
