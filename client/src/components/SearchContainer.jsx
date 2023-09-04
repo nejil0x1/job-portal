@@ -10,6 +10,18 @@ const SearchContainer = () => {
 	const { search, jobStatus, jobType, sort } = searchValues;
 	const submit = useSubmit();
 
+	const debounce = onChange => {
+		let timeout;
+		return event => {
+			const form = event.target.value;
+			clearTimeout(timeout);
+			timeout = setTimeout(() => {
+				onChange(form);
+			}, 2000);
+			// console.log(event.target.form);
+		};
+	};
+
 	return (
 		<Wrapper>
 			<Form className='form'>
@@ -20,7 +32,9 @@ const SearchContainer = () => {
 						name='search'
 						labelText='search'
 						defaultValue={search}
-						onChange={event => submit(event.target.form)}
+						onChange={debounce(form => {
+							submit(form);
+						})}
 					/>
 					<FormRowSelect
 						name='jobStatus'
