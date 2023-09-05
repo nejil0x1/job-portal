@@ -36,7 +36,9 @@ This is a MERN stack project, which is created with Vite. And 'Styled-components
 
 
 ## Contents
-
+* [Features](https://github.com/umangutkarsh/JobLabs/tree/main#features)
+* [Usage](https://github.com/umangutkarsh/JobLabs/tree/main#usage)
+* [Work in Progress](https://github.com/umangutkarsh/JobLabs/tree/main#work-in-progress)
 
 
 <br />
