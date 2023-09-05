@@ -63,6 +63,18 @@ This is a MERN stack project, which is created with Vite. And 'Styled-components
 ## Usage
 * Create a MongoDB database and obtain your MongoDB URI - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
 
+* Setting up the example-env file
+```
+NODE_ENV=development_or_production
+PORT=5100
+MONGO_URL=your_mongodb_uri
+JWT_SECRET=your_jwt_token
+JWT_EXPIRES_IN=jwt_expiration_time
+CLOUD_NAME=cloudinary_account_name
+CLOUD_API_KEY=cloudinary_api_key
+CLOUD_API_SECRET=cloudinary_api_secret
+```
+
 
 <br />
 
