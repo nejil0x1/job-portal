@@ -12,7 +12,9 @@ Job Portal build using MERN stack. Vite is used instead of create-react-app meth
 &emsp;
 
 
-![jobLabs](https://github.com/umangutkarsh/JobLabs/assets/95426993/89ee8af2-b707-4726-8360-53e3195e0a6b)
+
+![jobLabs](https://github.com/umangutkarsh/JobLabs/assets/95426993/d9db515b-1974-4d56-860e-1f73a3b675b2)
+
 
 
 
