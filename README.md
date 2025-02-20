@@ -38,15 +38,6 @@ This is a MERN stack project, which is created with Vite. And 'Styled-components
 
 <br />
 
-
-## Contents
-* [Features](https://github.com/umangutkarsh/JobLabs/tree/main#features)
-* [Usage](https://github.com/umangutkarsh/JobLabs/tree/main#usage)
-* [Work in Progress](https://github.com/umangutkarsh/JobLabs/tree/main#work-in-progress)
-
-
-<br />
-
 ## Features
 * 🔒 Authentication (Login / Register)
 * 👮 Authorization (Editing user profile, and uploading profile images)
@@ -61,26 +52,3 @@ This is a MERN stack project, which is created with Vite. And 'Styled-components
 * ⚠️ Custom Error Page
 * 📁 Sidebar functionality (BigSidebar and SmallSidebar)
 * 📱 Mobile Responsive 
-
-<br />
-
-## Usage
-* Create a MongoDB database and obtain your MongoDB URI - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
-
-* Setting up the example-env file
-```
-NODE_ENV=development_or_production
-PORT=5100
-MONGO_URL=your_mongodb_uri
-JWT_SECRET=your_jwt_token
-JWT_EXPIRES_IN=jwt_expiration_time
-CLOUD_NAME=cloudinary_account_name
-CLOUD_API_KEY=cloudinary_api_key
-CLOUD_API_SECRET=cloudinary_api_secret
-```
-
-
-<br />
-
-## Work in Progress
-* Some minor bug fixes to be done.
