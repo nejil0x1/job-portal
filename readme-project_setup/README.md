@@ -449,13 +449,11 @@ const Landing = () => {
 				{/* info */}
 				<div className='info'>
 					<h1>
-						job <span>tracking</span> app
+						job <span>portal</span>
 					</h1>
 					<p>
-						I'm baby wayfarers hoodie next level taiyaki brooklyn cliche blue
-						bottle single-origin coffee chia. Aesthetic post-ironic venmo,
-						quinoa lo-fi tote bag adaptogen everyday carry meggings +1 brunch
-						narwhal.
+
+Our job portal is an easy-to-use platform designed to connect job seekers with employers. Job seekers can create profiles, search for jobs, and apply directly, while employers can post job openings, manage applications, and find top talent. With personalized job alerts, real-time notifications, and advanced search filters, the platform streamlines the job search and hiring process for everyone.
 					</p>
 					<Link to='/register' className='btn register-link'>
 						Register
