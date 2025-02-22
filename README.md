@@ -2,21 +2,6 @@
 Job Portal build using MERN stack. Vite is used instead of create-react-app method for creating the project.
 
 
-[![Mongo Badge](http://img.shields.io/badge/Database%20-MongoDB-darkgreen?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/)
-&emsp;
-[![Express Badge](http://img.shields.io/badge/Server%20-Express-black?style=for-the-badge&logo=express)](https://expressjs.com/)
-&emsp;
-[![Reactjs Badge](http://img.shields.io/badge/Client%20-React-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
-&emsp;
-[![Node Badge](http://img.shields.io/badge/Backend%20-Node-green?style=for-the-badge&logo=node.js)](https://nodejs.org/en/)
-&emsp;
-
-
-
-![jobLabs](https://github.com/umangutkarsh/JobLabs/assets/95426993/d9db515b-1974-4d56-860e-1f73a3b675b2)
-
-
-
 
 This is a MERN stack project, which is created with Vite. And 'Styled-components' are used to style the pages.
 * Vite is used to create the project
